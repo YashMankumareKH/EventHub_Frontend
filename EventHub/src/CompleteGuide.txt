@@ -1,0 +1,350 @@
+# EventHub React Frontend
+
+A comprehensive event management system built with React and Vite.
+
+## 🚀 Features
+
+### User Roles
+
+#### Participant (User)
+- Browse and search published events
+- View detailed event information
+- Register for events
+- View upcoming and completed events
+- Manage personal profile
+- Cancel event registrations
+
+#### Event Manager
+- Create and manage events
+- Update event details
+- View attendee lists
+- Cancel user registrations
+- Cancel or delete events
+- Track event capacity
+
+#### Admin
+- User management (view, create, update, deactivate)
+- Event management (view all, deactivate)
+- Manager oversight
+- System statistics dashboard
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Java backend running on `http://localhost:8080`
+
+## 🛠️ Installation
+
+### 1. Create Project
+
+```bash
+npm create vite@latest eventhub-frontend -- --template react
+cd eventhub-frontend
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install react-router-dom axios lucide-react
+```
+
+### 3. Project Structure
+
+Create the following folder structure:
+
+```
+eventhub-frontend/
+├── public/
+├── src/
+│   ├── api/
+│   │   ├── axios.js
+│   │   ├── authApi.js
+│   │   ├── userApi.js
+│   │   ├── managerApi.js
+│   │   └── adminApi.js
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   ├── ErrorMessage.jsx
+│   │   │   ├── SuccessMessage.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   └── ConfirmDialog.jsx
+│   │   ├── auth/
+│   │   │   ├── LoginForm.jsx
+│   │   │   └── RegisterForm.jsx
+│   │   ├── user/
+│   │   │   ├── EventCard.jsx
+│   │   │   ├── EventDetails.jsx
+│   │   │   ├── UserProfile.jsx
+│   │   │   └── MyEvents.jsx
+│   │   ├── manager/
+│   │   │   ├── EventForm.jsx
+│   │   │   ├── ManagerDashboard.jsx
+│   │   │   ├── EventManagement.jsx
+│   │   │   └── AttendeesList.jsx
+│   │   └── admin/
+│   │       ├── AdminDashboard.jsx
+│   │       ├── UserManagement.jsx
+│   │       └── EventManagement.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── Events.jsx
+│   │   ├── EventDetail.jsx
+│   │   ├── UserDashboard.jsx
+│   │   ├── ManagerDashboard.jsx
+│   │   └── AdminDashboard.jsx
+│   ├── routes/
+│   │   ├── ProtectedRoute.jsx
+│   │   └── AppRoutes.jsx
+│   ├── utils/
+│   │   ├── formatters.js
+│   │   └── validators.js
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── .env
+├── package.json
+└── vite.config.js
+```
+
+### 4. Environment Configuration
+
+Create `.env` file in the root directory:
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+### 5. Copy All Code Files
+
+Copy all the code from the artifacts provided into their respective files.
+
+## 🎯 Running the Application
+
+### Development Mode
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 🔑 Default Users
+
+After seeding your database, you can use these credentials:
+
+### Admin
+- Email: `admin@eventhub.com`
+- Password: `admin123`
+
+### Manager
+- Email: `manager@eventhub.com`
+- Password: `manager123`
+
+### Participant
+- Email: `user@eventhub.com`
+- Password: `user123`
+
+## 📱 Application Flow
+
+### 1. Registration & Login
+- New users can register as Participant or Manager
+- Existing users log in with email and password
+- Role-based dashboard redirection
+
+### 2. Participant Flow
+1. Browse events on home page
+2. Search and filter events
+3. View event details
+4. Register for events
+5. View upcoming/completed events in dashboard
+6. Manage profile
+7. Cancel registrations
+
+### 3. Manager Flow
+1. Access manager dashboard
+2. Create new events with full details
+3. View and manage created events
+4. Edit event information
+5. View attendee lists
+6. Cancel user registrations
+7. Cancel or delete events
+
+### 4. Admin Flow
+1. View system statistics
+2. Manage all users (create, update, deactivate)
+3. Oversee all events
+4. Deactivate problematic events
+5. View manager activities
+
+## 🎨 Key Features
+
+### Event Management
+- ✅ Full CRUD operations
+- ✅ Category-based organization
+- ✅ Capacity tracking
+- ✅ Date/time management
+- ✅ Status tracking (Published, Cancelled, Completed)
+
+### User Management
+- ✅ Role-based access control
+- ✅ Profile management
+- ✅ Password encryption
+- ✅ Soft delete functionality
+
+### Registration System
+- ✅ Event registration
+- ✅ Registration cancellation
+- ✅ Attendee tracking
+- ✅ Status management
+
+### UI/UX Features
+- ✅ Responsive design
+- ✅ Loading states
+- ✅ Error handling
+- ✅ Success notifications
+- ✅ Confirmation dialogs
+- ✅ Search and filters
+- ✅ Modal windows
+
+## 🔒 Security Features
+
+- Client-side route protection
+- Role-based component rendering
+- Secure password handling
+- HTTP-only credentials
+- Protected API endpoints
+
+## 🎨 Styling
+
+The application uses custom CSS with:
+- CSS Variables for theming
+- Responsive grid layouts
+- Flexbox for alignment
+- Modern animations
+- Mobile-first approach
+
+## 📊 API Integration
+
+All API calls are centralized in the `src/api/` directory:
+
+- **axios.js**: Base configuration with interceptors
+- **authApi.js**: Authentication endpoints
+- **userApi.js**: User/Participant operations
+- **managerApi.js**: Manager operations
+- **adminApi.js**: Admin operations
+
+## 🐛 Troubleshooting
+
+### CORS Issues
+Make sure your backend has CORS enabled for `http://localhost:5173`
+
+### API Connection
+Verify backend is running on `http://localhost:8080`
+
+### Build Errors
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Port Already in Use
+```bash
+# Kill process on port 5173
+npx kill-port 5173
+```
+
+## 📝 Code Structure
+
+### Component Organization
+- **Common**: Reusable UI components
+- **Auth**: Authentication forms
+- **User**: Participant-specific components
+- **Manager**: Event management components
+- **Admin**: Administration components
+
+### State Management
+- **Context API**: Global auth state
+- **Local State**: Component-specific data
+- **API Calls**: Centralized in service layer
+
+### Routing
+- **Public Routes**: Home, Events, Login, Register
+- **Protected Routes**: Dashboards based on role
+- **Role-Specific**: Admin, Manager, User routes
+
+## 🚀 Deployment
+
+### Vercel
+```bash
+npm run build
+vercel --prod
+```
+
+### Netlify
+```bash
+npm run build
+netlify deploy --prod
+```
+
+### Environment Variables
+Remember to set `VITE_API_BASE_URL` to your production backend URL.
+
+## 📦 Package Information
+
+### Core Dependencies
+- **react**: ^18.3.1
+- **react-dom**: ^18.3.1
+- **react-router-dom**: ^6.22.0
+- **axios**: ^1.6.7
+- **lucide-react**: ^0.263.1
+
+### Dev Dependencies
+- **vite**: ^5.4.2
+- **@vitejs/plugin-react**: ^4.3.1
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open pull request
+
+## 📄 License
+
+This project is part of the CDAC WJP Module mini-project.
+
+## 👥 Authors
+
+CDAC Team
+
+## 🙏 Acknowledgments
+
+- Spring Boot Backend Team
+- CDAC Faculty
+- React Community
+
+---
+
+For backend setup and API documentation, refer to the EventHub backend repository.

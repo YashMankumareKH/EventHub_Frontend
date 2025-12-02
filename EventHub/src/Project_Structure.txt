@@ -1,0 +1,115 @@
+# EventHub React Frontend - Complete Project Structure
+
+## Project Setup
+
+```bash
+npm create vite@latest eventhub-frontend -- --template react
+cd eventhub-frontend
+npm install
+npm install react-router-dom axios lucide-react
+npm run dev
+```
+
+## File Structure
+
+```
+eventhub-frontend/
+├── public/
+├── src/
+│   ├── api/
+│   │   ├── axios.js
+│   │   ├── authApi.js
+│   │   ├── userApi.js
+│   │   ├── managerApi.js
+│   │   └── adminApi.js
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   └── ErrorMessage.jsx
+│   │   ├── auth/
+│   │   │   ├── LoginForm.jsx
+│   │   │   └── RegisterForm.jsx
+│   │   ├── user/
+│   │   │   ├── EventCard.jsx
+│   │   │   ├── EventDetails.jsx
+│   │   │   ├── UserProfile.jsx
+│   │   │   └── MyEvents.jsx
+│   │   ├── manager/
+│   │   │   ├── EventForm.jsx
+│   │   │   ├── ManagerDashboard.jsx
+│   │   │   ├── EventManagement.jsx
+│   │   │   └── AttendeesList.jsx
+│   │   └── admin/
+│   │       ├── AdminDashboard.jsx
+│   │       ├── UserManagement.jsx
+│   │       └── EventManagement.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── Events.jsx
+│   │   ├── EventDetail.jsx
+│   │   ├── UserDashboard.jsx
+│   │   ├── ManagerDashboard.jsx
+│   │   └── AdminDashboard.jsx
+│   ├── routes/
+│   │   ├── ProtectedRoute.jsx
+│   │   └── AppRoutes.jsx
+│   ├── utils/
+│   │   ├── formatters.js
+│   │   └── validators.js
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── .env
+├── package.json
+└── vite.config.js
+```
+
+## Installation Commands
+
+```bash
+# Core dependencies
+npm install react-router-dom axios
+
+# UI components (optional)
+npm install lucide-react
+
+# Development
+npm install -D @vitejs/plugin-react
+```
+
+## Environment Variables (.env)
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+---
+
+## Implementation Notes
+
+1. **Authentication Flow**: Uses Context API for global auth state
+2. **API Layer**: Centralized axios configuration with interceptors
+3. **Routing**: Protected routes based on user roles
+4. **State Management**: React Context + local component state
+5. **Styling**: Can use Tailwind CSS or regular CSS modules
+
+## Next Steps
+
+After setting up the structure, I'll provide the complete code for each file in the following artifacts:
+
+1. Core Configuration Files
+2. API Layer
+3. Context & Routes
+4. Common Components
+5. Auth Components
+6. User Components
+7. Manager Components
+8. Admin Components
+9. Pages
+10. Utilities & Styling
